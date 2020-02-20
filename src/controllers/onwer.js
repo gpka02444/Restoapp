@@ -436,23 +436,22 @@ module.exports.userlogin = async (req, res, next) => {
 module.exports.usersignup = async (req, res, next) => {
  try {
    let device_id = "5555555555";
-   if (!req.body.password || !req.body.firstName || !req.body.phone) {
+   if (!req.body.password || !req.body.name || !req.body.email) {
     return res.json({ success: false, msg: "field are required!"});
   } 
 
-  let founduser = await User.findOne({phone: req.body.phone});
+  let founduser = await User.findOne({email: req.body.email});
   if(founduser) {
-    res.json({success: false, msg: "User Phone No. Already Exists!"})
+    res.json({success: false, msg: "User email Already Exists!"})
   } else {
     let todaysDate = moment().format("YYYY-MM-DD");
 
-    req.body.firstName = req.body.firstName.toLowerCase().replace(/ /g, "").trim() || "";
-    req.body.lastName =req.body.lastName .toLowerCase().replace(/ /g, "").trim() || "";
+    req.body.firstName = req.body.name.toLowerCase().replace(/ /g, "").trim() || "";
+   // req.body.lastName =req.body.lastName .toLowerCase().replace(/ /g, "").trim() || "";
 
     let user = new User({
       device_id: device_id,
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
+      name: req.body.name,
       email: req.body.email.toLowerCase(),
       countrycode: req.body.countrycode,
       phone: req.body.phone,

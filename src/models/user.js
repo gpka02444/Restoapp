@@ -8,26 +8,20 @@ var UserSchema = new Schema({
         type: String,
         default: ""
     },
-    firstName: {
+    name: {
         type: String,
         required: true
     }, 
-    lastName: {
-        type: String
-    },
-    userName: {
-        type: String
-    },
     conutryCode: {
         type: Number
       },
     phone: {
         type: Number,
-        required: true,
         unique: true
     },
     email: {
         type: String,
+        required: true,
         unique: true
     },
     password: {

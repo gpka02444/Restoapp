@@ -17,7 +17,6 @@ var transporter = nodemailer.createTransport({
 /* ************ ADMIN LOGIN **************** */
 module.exports.login = async (req, res, next) => {
   try {
-    console.log("LOgin Api", req.session);
 
     await Superuser.findOne({ username: req.body.username }, (err, user) => {
       if (err) throw err;

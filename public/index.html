@@ -142,6 +142,18 @@
         } else {
           alert("Enter some text ! "); // just in case somebody to click witout writing anything :)
         }
+// Check browser support
+if (typeof(Storage) !== "undefined") {
+  // Store
+  sessionStorage.setItem("token", "token");
+  // Retrieve
+  tokensession =sessionStorage.getItem("token");
+  console.log(tokensession);
+  
+} else {
+  console.log("pta nhi kya hi");
+}
+
       }); //end click function
     }); //end ready function
   </script>

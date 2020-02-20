@@ -7,7 +7,7 @@ module.exports = function validatorUserInput(data) {
     // Convert empty fields to an empty string so we can use validator functions
   data.email = !isEmpty(data.email) ? data.email : "";
   data.password = !isEmpty(data.password) ? data.password : "";
-  data.firstName = !isEmpty(data.firstName) ? data.firstName: "";
+  data.name = !isEmpty(data.name) ? data.name: "";
   data.restaurantName = !isEmpty(data.restaurantName) ? data.restaurantName: "";
   data.phone = !isEmpty(data.phone) ? data.phone: "";
 
